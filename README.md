@@ -1,17 +1,18 @@
-﻿# Lunch Check Application
+﻿# Shopping List Check Off Application
 
-This is the solution for Module 1 Coding Assignment of the "Single Page Web Applications with AngularJS" course.
+This is the solution for Module 2 Coding Assignment of the "Single Page Web Applications with AngularJS" course.
 
 ## Description
-This application helps users determine if their lunch menu has too many items. Users can enter a comma-separated list of items they plan to eat for lunch, and the application will check if the number of items is appropriate.
+A shopping list application that allows users to "check off" items they''ve already bought. The application moves items from the "To Buy" list to the "Already Bought" list.
 
 ### Features
-- Input validation for empty entries
-- Proper handling of empty items between commas
-- Visual feedback for different states
+- Two lists: "To Buy" and "Already Bought"
+- Pre-populated with 5 items
+- Move items between lists with "Bought" button
+- Empty state messages
 - Responsive design
 
-## Setup
+## Installation
 1. Clone this repository
 2. Open index.html in your web browser
-3. Start entering your lunch items!
+3. Start checking off items!

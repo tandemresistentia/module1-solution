@@ -1,29 +1,48 @@
 ﻿<!DOCTYPE html>
-<html ng-app="LunchCheck">
+<html ng-app="ShoppingListCheckOff">
 <head>
-    <title>Lunch Check</title>
+    <title>Shopping List Check Off</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container" ng-controller="LunchCheckController">
-        <h1>Lunch Check</h1>
-        <div>
-            <p><small>Note: Empty items (e.g., "item1, ,item2") are not counted</small></p>
-            
-            <input type="text" 
-                   ng-model="lunchItems" 
-                   placeholder="Enter comma-separated items">
-            
-            <button ng-click="checkIfTooMuch()">Check If Too Much</button>
-        </div>
-        <div class="message" ng-class="messageClass">
-            {{ message }}
+    <div class="container">
+        <h1>Shopping List Check Off</h1>
+
+        <div class="row">
+            <!-- To Buy List -->
+            <div class="col-md-6" ng-controller="ToBuyController as toBuy">
+                <h2>To Buy:</h2>
+                <ul>
+                    <li ng-repeat="item in toBuy.items">
+                        Buy {{item.quantity}} {{item.name}}
+                        <button class="btn btn-default" ng-click="toBuy.buyItem($index)">
+                            <span class="glyphicon glyphicon-ok"></span> Bought
+                        </button>
+                    </li>
+                </ul>
+                <div ng-if="toBuy.items.length === 0" class="empty-message">Everything is bought!</div>
+            </div>
+
+            <!-- Already Bought List -->
+            <div class="col-md-6" ng-controller="AlreadyBoughtController as bought">
+                <h2>Already Bought:</h2>
+                <ul>
+                    <li ng-repeat="item in bought.items">
+                        Bought {{item.quantity}} {{item.name}}
+                    </li>
+                </ul>
+                <div ng-if="bought.items.length === 0" class="empty-message">Nothing bought yet.</div>
+            </div>
         </div>
     </div>
 
-    <!-- Angular JS -->
+    <!-- Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    
+    <!-- Application Scripts -->
     <script src="js/app.js"></script>
-    <script src="js/controllers/lunch.controller.js"></script>
+    <script src="js/services/shopping-list.service.js"></script>
+    <script src="js/controllers/tobuy.controller.js"></script>
+    <script src="js/controllers/bought.controller.js"></script>
 </body>
 </html>
