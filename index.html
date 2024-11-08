@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="LunchCheck">
+<head>
+    <title>Lunch Check</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container" ng-controller="LunchCheckController">
+        <h1>Lunch Check</h1>
+        <div>
+            <p><small>Note: Empty items (e.g., "item1, ,item2") are not counted</small></p>
+            
+            <input type="text" 
+                   ng-model="lunchItems" 
+                   placeholder="Enter comma-separated items">
+            
+            <button ng-click="checkIfTooMuch()">Check If Too Much</button>
+        </div>
+        <div class="message" ng-class="messageClass">
+            {{ message }}
+        </div>
+    </div>
+
+    <!-- Angular JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/lunch.controller.js"></script>
+</body>
+</html>
